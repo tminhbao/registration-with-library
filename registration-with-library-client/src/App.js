@@ -7,15 +7,38 @@ import CourseCreatePage from "./pages/CourseCreatePage";
 import "@progress/kendo-theme-default/dist/all.css";
 import "./App.css";
 import Account from "./components/Account/account";
-import Footer from './components/Footer';
-//Phuc
-import FormSignUpToLoginPage from "./pages/FormSignUpToLoginPage";
-import FormLoginPage from "./pages/FormLoginPage";
+
+//import FormSignUpToLoginPage from "./pages/FormSignUpToLoginPage";
+//import FormLoginPage from "./pages/FormLoginPage";
 import FormUserEditPage from "./pages/FormUserEditPage";
-//Bao
+
 import CourseDetailPage from "./pages/CourseDetailPage";
 
 import HomePage from "./pages/HomePage";
+import FormSignUpHook from "./components/FormSignUpHook/FormSignUpHook";
+import FormLoginHook from "./components/FormLoginHook/FormLoginHook";
+
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyBDocSq9D1139yFAGbA-nhEAAbVW96E_t4",
+  authDomain: "registration-with-lib.firebaseapp.com",
+  projectId: "registration-with-lib",
+  storageBucket: "registration-with-lib.appspot.com",
+  messagingSenderId: "627735285647",
+  appId: "1:627735285647:web:52f37b82b0359980c605fa",
+  measurementId: "G-5W9M038BTV",
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
 
 function App() {
   return (
@@ -30,11 +53,8 @@ function App() {
             <Route path="/course-create" element={<CourseCreatePage />} />
 
             {/*phuc*/}
-            <Route
-              path="/form-signuptologin"
-              element={<FormSignUpToLoginPage />}
-            />
-            <Route path="/form-login" element={<FormLoginPage />} />
+            <Route path="/form-signuptologin" element={<FormSignUpHook />} />
+            <Route path="/form-login" element={<FormLoginHook />} />
             <Route path="/form-edit" element={<FormUserEditPage />} />
 
             {/* Bảo thêm dô đoạn này  */}
@@ -43,7 +63,6 @@ function App() {
           </Routes>
         </div>
       </div>
-      <Footer />
     </HashRouter>
   );
 }

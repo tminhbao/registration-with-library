@@ -1,5 +1,6 @@
+import FormSignUpHook from "../components/FormSignUpHook/FormSignUpHook";
 import FormSignUpToLogin from "../components/FormSignUpToLogin"; //Form - Signup page, Signup success -> login page
 const FormSignUpToLoginPage = () => {
-  return <FormSignUpToLogin></FormSignUpToLogin>;
+  return <FormSignUpHook />;
 };
 export default FormSignUpToLoginPage;
